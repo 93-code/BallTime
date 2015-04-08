@@ -43,12 +43,12 @@ int main(int argc, const char *argv[])
     day = 0;
     while (1)
     {
-        if (ball_1_mLs->n != 4)
+        if (ball_1_mLs->n < 4)
         {
             ball = delete_linkqueue(ball_Lq);
             push_linkstack(ball_1_mLs,ball);
         }
-        if (ball_1_mLs->n == 4 && ball_5_mLs->n != 11)
+        else if (/*ball_1_mLs->n == 4 &&*/ ball_5_mLs->n < 11)
         {
             while (!is_empty_linkstack(ball_1_mLs))
             {
@@ -59,7 +59,7 @@ int main(int argc, const char *argv[])
             ball = delete_linkqueue(ball_Lq);
             push_linkstack(ball_5_mLs,ball);
         }
-        if (ball_1_mLs->n == 4 && ball_5_mLs->n == 11 && ball_1_hLs->n != 12)
+        else if (/*ball_1_mLs->n == 4 && ball_5_mLs->n == 11 &&*/ ball_1_hLs->n <= 11)
         {
             while (!is_empty_linkstack(ball_5_mLs))
             {
@@ -74,7 +74,7 @@ int main(int argc, const char *argv[])
 
             ball = delete_linkqueue(ball_Lq);
             push_linkstack(ball_1_hLs,ball);
-
+        }
             if (ball_1_hLs->n == 12)
             {
                 ball_last = pop_linkstack(ball_1_hLs);
@@ -92,7 +92,6 @@ int main(int argc, const char *argv[])
                     return 1;
                 }
             }
-        }
         //////////////////////////////
 #if 0/*{{{*/
         if (ball_1_mLs->n == 4 && ball_5_mLs->n == 11 && ball_1_hLs->n == 11)
